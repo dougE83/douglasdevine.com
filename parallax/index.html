@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <title>Creating a Simple Parallax Scrolling Website</title>
+       <link rel="stylesheet" href="css/style.css"/>
+	   <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+       <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
+	   <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
+	   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>	
+	   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	   <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
+	<script>
+   
+<!----- JQUERY FOR SLIDING NAVIGATION --->   
+$(document).ready(function() {
+  $('a[href*=#]').each(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+    && location.hostname == this.hostname
+    && this.hash.replace(/#/,'') ) {
+      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+       if ($target) {
+         var targetOffset = $target.offset().top;
+
+<!----- JQUERY CLICK FUNCTION REMOVE AND ADD CLASS "ACTIVE" + SCROLL TO THE #DIV--->   
+         $(this).click(function() {
+            $("#nav li a").removeClass("active");
+            $(this).addClass('active');
+           $('html, body').animate({scrollTop: targetOffset}, 1000);
+           return false;
+         });
+      }
+    }
+  });
+
+});
+
+
+</script>
+
+
+ </head> 
+	
+<body>
+<!--LINK BACK TO THE TUTORIAL-->  
+<div id="demo_back">
+<!----><a href="http://www.douglasdevine.com" class="lpanel"> << BACK TO THE MAIN PAGE </a>
+<!----><a href="http://www.history.com/this-day-in-history" id="date" class="rpanel">MARCH 19TH 2015>> </a>
+<script>
+var d = new Date();
+document.getElementById("date").innerHTML = d;
+</script>
+</div>
+
+<!--HEADER START-->   
+<header id="header">
+<div class="content">
+<div id="logo"><a href="">DOUGLAS DEVINE</a></div>
+
+<nav id="nav">
+	<ul>
+		<li><a href="#about_me" class="active" title="Next Section" >ABOUT ME</a></li>
+		<li><a href="#work_history" title="Next Section">WORK HISTORY</a></li>
+		<li><a href="#education" title="Next Section">EDUCATION</a></li>
+		<li><a  href="#hobbies" title="Next Section">HOBBIES</a></li>
+		<li><a href="#extras" title="Next Section">EXTRAS</a></li>
+	</ul>
+</nav>
+</div>
+</header>	
+<!--HEADER END-->   
+
+<!--SLIDES START-->   	
+	<div id="about_me"> <!--ABOUT ME-->
+		<div class="content">
+			<div id="doug"> </div>
+			<div id="snowflakes1"></div>
+			<div id="snowflakes2"></div>
+            <h2>HAPPY</h2>
+		    <h1>THURSDAY</h1>
+		    <div id="divider"> </div>
+		     <h3>PLACE HOLDER!!! </h3>
+           <div id="ribbon"></div>
+	       <div id="new_year"> </div>
+		</div> 
+    </div> 
+
+	<div id="work_history"> <!--WORK HISTORY-->
+		<div class="content" >
+            <div class="quotes_container">
+		    <h3 class="quotes">Oracle; BigMachines; Hub Group; APD; Check Free</h3>
+		  <img src="img/dr-seuss.png" align="left"/> <h4 class="author_name_gray">Douglas Devine </h4>
+		</div> 
+		</div> 
+    </div> 
+	
+	
+   <div id="education"> <!--EDUCATION-->
+		<div class="content">
+			   <div class="quotes_container">
+		       <h3 class="quotes">“Graduated from NIU in summer of 2008 BS in Economics.... place holder***”  </h3>
+		      <img src="img/NIU_Logo.png" align="left"/> <h4 class="author_name_white">Norman Vincent Peale </h4>
+		    </div> 
+		</div> 
+    </div> 
+	
+	
+	<div id="hobbies"> <!--HOBBIES-->
+		<div class="content">
+              <div class="quotes_container">
+		    <h3 class="quotes">“Food, Friends, Cars, Tech and others..... place holder*****” </h3>
+		  <img src="img/dr-seuss.png" align="left"/> <h4 class="author_name_gray">Dr. Seuss </h4>
+		</div> 
+		</div> 
+    </div> 
+	
+	
+	<div id="extras"> <!--EXTRAS-->
+		<div class="content">
+           <div class="quotes_container">
+		    <h3 class="quotes">“place holder*******</h3>
+		    <img src="img/bob.png" align="left"/> <h4 class="author_name_white">Bob Hope </h4>
+		  </div> 
+		<div id="copyright"><a href="http://www.douglasdevine.com/">Copyright douglasdevine.com </a></div>  
+		</div> 
+		
+
+    </div> 
+	
+<!--SLIDES END-->
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Douglas Devine | Low Carb Enthusiast</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400italic,700italic,400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header>
+      <a href="index.html" id="logo">
+        <h1>Douglas Devine</h1>
+        <h2>Low Carb Enthusiast</h2>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="selected">NOMS!</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <!--<li><a href="education.html">Education</a></li>
+          <li><a href="test">test</a></li>-->
+        </ul>
+      </nav>
+    </header>
+    <div id="wrapper">
+      <section>
+       <ul id="gallery">
+         <li>
+           <a href="img/IMG1.jpg" class="lightbox_trigger">
+             <img src="img/IMG1.jpg" alt="" class="">
+              <a href="http://peaceloveandlowcarb.com/2012/06/philly-cheesesteak-stuffed-peppers-low-carb-gluten-free.html"><p>Philly cheese steak stuffed green peppers.</p></a>
+           </a>
+         </li>
+         <li>
+           <a href="img/IMG2.jpg" class="lightbox_trigger">
+             <img src="img/IMG2.jpg" alt="">
+              <a href="http://peaceloveandlowcarb.com/2012/07/turkey-taco-burgers.html"><p>Mini turkey taco meatloaf.</p></a>
+           </a>
+         </li>
+         <li>
+           <a href="img/IMG3.jpg" class="lightbox_trigger">
+             <img src="img/IMG3.jpg" alt="">
+              <a href="http://peaceloveandlowcarb.com/2012/02/s-s-chicken-club-avocado-boats.html>"><p>Chicken club stuffed avocado.</p></a>
+           </a>
+         </li>
+         <li>
+           <a href="img/IMG4.jpg" class="lightbox_trigger">
+             <img src="img/IMG4.jpg" alt="">
+              <p>Turkey wrapped egg muffins.</p>
+           </a>
+         </li>
+         <li>
+           <a href="img/IMG5.jpg" class="lightbox_trigger">
+             <img src="img/IMG5.jpg" alt="">
+              <a href="http://peaceloveandlowcarb.com/2012/11/chicken-parmesan-meatballs.html"><p>Chicken parmesan meatballs. </p></a>
+           </a>
+         <li>
+           <a href="img/IMG6.jpg" class="lightbox_trigger">
+             <img src="img/IMG6.jpg" alt="">
+              <a href="http://peaceloveandlowcarb.com/2012/01/zero-carb-boneless-buffalo-wings.html"><p>No carb boneless buffalo chicken wings.</p></a>
+           </a>
+         </li>
+         </li>
+       </ul>
+      </section>
+      <footer>
+        <p>Click on title of meal for link to recipes</p>
+        <a href="http://twitter.com/dougdevine83"><img src="img/twitter-wrap.png" alt"Twitter Logo" class="social-icon"></a>
+        <a href="https://facebook.com/douglas.devine"><img src="img/facebook-wrap.png" alt"Facebook Logo" class="social-icon"></a>
+        <a href="https://plus.google.com/+douglasdevine"><img src="img/Googleplusicon.png" alt"Google Plus Logo" class="social-icon"></a>
+        <p>&copy; 2014 Douglas Devine.</p>
+      </footer>
+    </div>
+ 
+<!-- Lightbox script -->
+  <script src="https://code.jquery.com/jquery-1.6.2.min.js"></script>
+
+    <script>
+    jQuery(document).ready(function($) {
+      
+      $('.lightbox_trigger').click(function(e) {
+        
+        //prevent default action (hyperlink)
+        e.preventDefault();
+        
+        //Get clicked link href
+        var image_href = $(this).attr("href");
+        
+        /*  
+        If the lightbox window HTML already exists in document, 
+        change the img src to to match the href of whatever link was clicked
+        
+        If the lightbox window HTML doesn't exists, create it and insert it.
+        (This will only happen the first time around)
+        */
+        
+        if ($('#lightbox').length > 0) { // #lightbox exists
+          
+          //place href as img src value
+          $('#content').html('<img src="' + image_href + '" />');
+            
+          //show lightbox window - you could use .show('fast') for a transition
+          $('#lightbox').show();
+        }
+        
+        else { //#lightbox does not exist - create and insert (runs 1st time only)
+          
+          //create HTML markup for lightbox window
+          var lightbox = 
+          '<div id="lightbox">' +
+            '<p>Click to close</p>' +
+            '<div id="content">' + //insert clicked link's href into img src
+              '<img src="' + image_href +'" />' +
+            '</div>' +  
+          '</div>';
+            
+          //insert lightbox HTML into page
+          $('body').append(lightbox);
+        }
+        
+      });
+      
+      //Click anywhere on the page to get rid of lightbox window
+      $('#lightbox').live('click', function() { //must use live, as the lightbox element is inserted into the DOM
+        $('#lightbox').hide();
+      });
+
+    });
+    </script>
+
+  </body>
+</html>
